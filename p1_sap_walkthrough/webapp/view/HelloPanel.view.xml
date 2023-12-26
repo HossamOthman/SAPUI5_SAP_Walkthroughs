@@ -1,0 +1,22 @@
+<mvc:View controllerName="edu.p1sapwalkthrough.controller.HelloPanel"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+
+
+
+            <Button id="oText" text="{i18n>showHelloBtnText}" press=".onShowHello"></Button>
+            <Input 
+                id="helloFieldInput"
+                value="{/recipient/name}" 
+                description="Hello {/recipient/name}"
+                valueLiveUpdate="true"
+                width="60%"></Input>
+
+
+
+
+        </content>
+    </Page>
+</mvc:View>
