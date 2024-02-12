@@ -1,0 +1,16 @@
+<!-- Schadentag + Uhrzeit -->
+                    <Label fieldGroupIds="SchadTsSmart" id="labSchadTsSmart" labelFor="SchadTsSmart" text="{i18n>Schadenszeitpunkt}"/>
+                    <Input fieldGroupIds="SchadTsSmart" id="txSchadTsSmart" editable="false" value="{path:'SchadTs', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', pattern: 'dd.MM.YYYY HH:mm', UTC: false}}" />
+                    <Button fieldGroupIds="SchadTsSmart" id="btSchadTsSmart" width="2rem" ariaHasPopup="Dialog" tooltip="Öffne Date Picker" icon="sap-icon://appointment-2" press=".openDatePicker" visible="{detailView>/changeMode}" />                  
+                    <DateTimePicker fieldGroupIds="SchadTsSmart" id="SchadTsSmart"
+                                    value="{path:'SchadTs', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', pattern: 'dd.MM.YYYY HH:mm', UTC: false}}"
+                                    maxDate="{detailView>/today}"
+                                    minDate="{detailView>/minDate}"
+                                    initialFocusedDateValue="{detailView>/today}"
+                                    hideInput="true"
+                                    editable="{detailView>/changeMode}" />
+
+      //NVO 2023-03-02 Datumsfelder optimieren IMS-516
+        openDatePicker: function (oEvent) {
+            sap.ui.core.Fragment.byId(oEvent.getSource().getId().split("--")[0], oEvent.getSource().getFieldGroupIds()[0]).openBy(oEvent.getSource().getDomRef());
+        },
